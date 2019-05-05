@@ -11,6 +11,11 @@ import UploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapte
 import Autoformat from '@ckeditor/ckeditor5-autoformat/src/autoformat';
 import Bold from '@ckeditor/ckeditor5-basic-styles/src/bold';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic';
+
+import Alignment from '@ckeditor/ckeditor5-alignment/src/alignment'; //added
+import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline'; //added
+import Strikethrough from '@ckeditor/ckeditor5-basic-styles/src/strikethrough'; //added
+
 import BlockQuote from '@ckeditor/ckeditor5-block-quote/src/blockquote';
 import CKFinder from '@ckeditor/ckeditor5-ckfinder/src/ckfinder';
 import EasyImage from '@ckeditor/ckeditor5-easy-image/src/easyimage';
@@ -32,11 +37,14 @@ export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
+	Alignment,
 	Essentials,
 	UploadAdapter,
 	Autoformat,
 	Bold,
 	Italic,
+	Underline,
+	Strikethrough,
 	BlockQuote,
 	CKFinder,
 	EasyImage,
@@ -60,19 +68,25 @@ ClassicEditor.defaultConfig = {
 	toolbar: {
 		items: [
 			'heading',
+			'blockQuote',
 			'|',
 			'bold',
 			'italic',
-			'link',
+			'underline',
+			'strikethrough',
 			'bulletedList',
 			'numberedList',
-			'imageUpload',
-			'blockQuote',
-			'insertTable',
-			'mediaEmbed',
 			'undo',
-			'redo'
+			'redo',
+			'|',
+			'aligment',
+			'imageUpload',
+			'link',
+			'mediaEmbed',
 		]
+	},
+	aligment:{
+		options:['left', 'right', 'center', 'justify']
 	},
 	image: {
 		toolbar: [
